@@ -22,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:label="BMI History"
+            android:theme="@style/Theme.W2_bmi_app"/>
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false"
+            android:label="Statistics"
+            android:theme="@style/Theme.W2_bmi_app"/>
     </application>
 
 </manifest>

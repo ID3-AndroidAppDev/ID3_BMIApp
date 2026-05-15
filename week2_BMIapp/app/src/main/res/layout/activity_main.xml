@@ -1,100 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BMI Calculator"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Weight (kg)">
-        
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etWeight"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI Calculator"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Current Weight -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-            
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="16dp"
+            android:hint="Weight (kg)">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:hint="Height (cm)">
-        
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etHeight"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Height -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-            
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="16dp"
+            android:hint="Height (cm)">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCalculate"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Calculate BMI"
-        android:layout_marginBottom="48dp"
-        app:cornerRadius="8dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:cardElevation="2dp"
-        app:cardCornerRadius="16dp"
-        app:contentPadding="24dp"
-        tools:visibility="visible">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
+        <!-- Previous Weight -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_marginBottom="24dp"
+            android:hint="Previous Weight (kg)">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPreviousWeight"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your BMI"
-                android:textSize="16sp"/>
+                android:inputType="numberDecimal"/>
 
-            <TextView
-                android:id="@+id/tvBmiNumber"
-                android:layout_width="wrap_content"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Calculate Current BMI"
+            android:layout_marginBottom="12dp"
+            app:cornerRadius="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculatePrevious"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Calculate Previous BMI"
+            android:layout_marginBottom="24dp"
+            style="@style/Widget.Material3.Button.TonalButton"
+            app:cornerRadius="8dp"/>
+
+        <!-- Current BMI Result -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="16dp"
+            app:contentPadding="24dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="22.5"
-                android:textSize="48sp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorPrimary"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/tvBmiCategory"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your BMI"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tvBmiNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22.5"
+                    android:textSize="48sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/tvBmiCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal weight"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Previous BMI Result -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPreviousResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="16dp"
+            app:contentPadding="24dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Normal weight"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Previous BMI"
+                    android:textSize="16sp"/>
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tvPrevBmiNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22.5"
+                    android:textSize="48sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/tvPrevBmiCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal weight"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Weight-change advice -->
+        <TextView
+            android:id="@+id/tvWeightAdvice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            tools:visibility="visible"
+            tools:text="Your weight has been constant recently."/>
+
+        <!-- View History button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnViewHistory"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="View History"
+            app:icon="@drawable/ic_history"
+            app:iconGravity="textStart"
+            app:cornerRadius="14dp"/>
+
+    </LinearLayout>
+</ScrollView>

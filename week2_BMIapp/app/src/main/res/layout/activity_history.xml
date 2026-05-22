@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
-                android:text="View Statistics &amp; Charts"
+                android:text="View Dashboard"
                 app:cornerRadius="14dp"
                 android:visibility="gone"/>
 

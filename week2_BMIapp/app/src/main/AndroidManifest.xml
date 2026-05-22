@@ -30,7 +30,7 @@
         <activity
             android:name=".StatisticsActivity"
             android:exported="false"
-            android:label="Statistics"
+            android:label="Dashboard"
             android:theme="@style/Theme.W2_bmi_app"/>
     </application>
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BMI計算機</string>
+    <string name="title_main">BMI計算機</string>
+    <string name="subtitle_main">体格指数を追跡する</string>
+    <string name="hint_weight">体重 (kg)</string>
+    <string name="hint_height">身長 (cm)</string>
+    <string name="hint_prev_weight">前回の体重 (kg)</string>
+    <string name="btn_calc_current">現在のBMI</string>
+    <string name="btn_calc_previous">前回のBMI</string>
+    <string name="btn_view_history">履歴を見る</string>
+    <string name="label_your_bmi">あなたのBMI</string>
+    <string name="label_previous_bmi">前回のBMI</string>
+    <string name="btn_language_select">言語</string>
+    <string name="title_language">言語を選択</string>
+    <string name="lang_english">English</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_japanese">日本語</string>
+    <string name="lang_spanish">Español</string>
+
+    <string name="cat_underweight">低体重</string>
+    <string name="cat_normal">普通体重</string>
+    <string name="cat_overweight">過体重</string>
+    <string name="cat_obese">肥満</string>
+    <string name="cat_short_too_low">低い</string>
+    <string name="cat_short_normal">普通</string>
+    <string name="cat_short_too_high">高い</string>
+
+    <string name="advice_gaining">体重が増えています。今日20分間運動してみませんか？</string>
+    <string name="advice_losing">体重が減っています。よく頑張りました！</string>
+    <string name="advice_constant">体重は安定しています。</string>
+
+    <string name="title_history">BMI履歴</string>
+    <string name="history_count_one">1件の記録があります</string>
+    <string name="history_count_other">%d件の記録があります</string>
+    <string name="btn_show_best">最良のBMI</string>
+    <string name="btn_show_average">平均BMI</string>
+    <string name="btn_view_dashboard">ダッシュボード</string>
+    <string name="label_best_bmi_title">最良のBMI</string>
+    <string name="label_best_bmi_none_title">最良の結果は見つかりませんでした</string>
+    <string name="label_best_bmi_none_body">普通体重の記録がありません</string>
+    <string name="label_avg_bmi">平均BMI</string>
+    <string name="empty_no_records">記録がありません</string>
+    <string name="empty_start_hint">最初のBMIを計算してください</string>
+    <string name="fab_clear">全削除</string>
+    <string name="dialog_clear_title">履歴を消去</string>
+    <string name="dialog_clear_message">保存されたすべてのBMIデータを削除しますか？</string>
+    <string name="dialog_cancel">キャンセル</string>
+    <string name="dialog_clear_confirm">削除</string>
+
+    <string name="btn_tap_to_speak">タップして話す</string>
+    <string name="speech_choose_field">どのフィールドに入力しますか？</string>
+    <string name="speech_prompt">数字を言ってください</string>
+    <string name="speech_not_available">音声認識が利用できません</string>
+
+    <string name="title_statistics">ダッシュボード</string>
+    <string name="label_bmi_over_time">BMIの推移</string>
+    <string name="label_bmi_categories">BMIカテゴリ</string>
+    <string name="legend_normal">普通</string>
+    <string name="legend_too_high">高い</string>
+    <string name="legend_too_low">低い</string>
+    <string name="chart_dataset_label">BMI履歴</string>
+</resources>

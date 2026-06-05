@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="?attr/colorOnSurface"
-            app:title="Dashboard"
+            app:title="@string/title_statistics"
             app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -196,7 +196,7 @@
                 app:cardElevation="0dp"
                 app:strokeWidth="1dp"
                 app:strokeColor="?attr/colorOutlineVariant"
-                app:cardBackgroundColor="#1A237E">
+                app:cardBackgroundColor="@color/ds_prussian_blue">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -207,7 +207,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BMI over time"
+                        android:text="@string/label_bmi_over_time"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
@@ -239,7 +239,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BMI Categories"
+                        android:text="@string/label_bmi_categories"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="?attr/colorOnSurface"
@@ -274,7 +274,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Normal"
+                                android:text="@string/legend_normal"
                                 android:textSize="13sp"
                                 android:textColor="?attr/colorOnSurface"/>
                         </LinearLayout>
@@ -295,7 +295,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Too High"
+                                android:text="@string/legend_too_high"
                                 android:textSize="13sp"
                                 android:textColor="?attr/colorOnSurface"/>
                         </LinearLayout>
@@ -315,7 +315,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Too Low"
+                                android:text="@string/legend_too_low"
                                 android:textSize="13sp"
                                 android:textColor="?attr/colorOnSurface"/>
                         </LinearLayout>

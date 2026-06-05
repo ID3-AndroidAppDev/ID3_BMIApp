@@ -1,3 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">w2_bmi_app</string>
+    <string name="app_name">BMI Calculator</string>
+
+    <!-- Main screen -->
+    <string name="title_main">BMI Calculator</string>
+    <string name="subtitle_main">Track your body mass index</string>
+    <string name="hint_weight">Weight (kg)</string>
+    <string name="hint_height">Height (cm)</string>
+    <string name="hint_prev_weight">Previous Weight (kg)</string>
+    <string name="btn_calc_current">Current BMI</string>
+    <string name="btn_calc_previous">Previous BMI</string>
+    <string name="btn_view_history">View History</string>
+    <string name="label_your_bmi">Your BMI</string>
+    <string name="label_previous_bmi">Previous BMI</string>
+    <string name="btn_language_select">Language</string>
+    <string name="title_language">Select Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_japanese">日本語</string>
+    <string name="lang_spanish">Español</string>
+
+    <!-- BMI categories -->
+    <string name="cat_underweight">Underweight</string>
+    <string name="cat_normal">Normal weight</string>
+    <string name="cat_overweight">Overweight</string>
+    <string name="cat_obese">Obese</string>
+    <string name="cat_short_too_low">Too Low</string>
+    <string name="cat_short_normal">Normal</string>
+    <string name="cat_short_too_high">Too High</string>
+
+    <!-- Weight advice -->
+    <string name="advice_gaining">You are gaining some kilograms recently. Why not work out 20 minutes today?</string>
+    <string name="advice_losing">You are losing some kilograms recently. Good job!</string>
+    <string name="advice_constant">Your weight has been constant recently.</string>
+
+    <!-- History screen -->
+    <string name="title_history">BMI History</string>
+    <string name="history_count_one">You have 1 saved reading</string>
+    <string name="history_count_other">You have %d saved readings</string>
+    <string name="btn_show_best">Show Best BMI</string>
+    <string name="btn_show_average">Show Average BMI</string>
+    <string name="btn_view_dashboard">View Dashboard</string>
+    <string name="label_best_bmi_title">Your best BMI was</string>
+    <string name="label_best_bmi_none_title">Unfortunately, no best result found</string>
+    <string name="label_best_bmi_none_body">No readings with Normal weight yet</string>
+    <string name="label_avg_bmi">Your average BMI</string>
+    <string name="empty_no_records">No records yet</string>
+    <string name="empty_start_hint">Calculate your first BMI to get started</string>
+    <string name="fab_clear">Clear all</string>
+    <string name="dialog_clear_title">Clear history</string>
+    <string name="dialog_clear_message">Delete all saved BMI readings?</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_clear_confirm">Clear</string>
+
+    <!-- Speech recognition -->
+    <string name="btn_tap_to_speak">Tap to speak</string>
+    <string name="speech_choose_field">Fill which field?</string>
+    <string name="speech_prompt">Say a number</string>
+    <string name="speech_not_available">Speech recognition not available on this device</string>
+
+    <!-- Statistics screen -->
+    <string name="title_statistics">Dashboard</string>
+    <string name="label_bmi_over_time">BMI over time</string>
+    <string name="label_bmi_categories">BMI Categories</string>
+    <string name="legend_normal">Normal</string>
+    <string name="legend_too_high">Too High</string>
+    <string name="legend_too_low">Too Low</string>
+    <string name="chart_dataset_label">BMI History</string>
 </resources>

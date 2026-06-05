@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.W2_bmi_app" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.W2_bmi_app" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Deep Sea primary: Lavender Grey buttons/inputs -->
+        <item name="colorPrimary">@color/ds_lavender_grey</item>
+        <item name="colorOnPrimary">@color/ds_ink_black</item>
+        <item name="colorPrimaryContainer">@color/ds_dusk_blue</item>
+        <item name="colorOnPrimaryContainer">@color/ds_alabaster_grey</item>
+
+        <!-- Deep Sea secondary: Dusk Blue containers -->
+        <item name="colorSecondary">@color/ds_dusk_blue</item>
+        <item name="colorOnSecondary">@color/ds_alabaster_grey</item>
+        <item name="colorSecondaryContainer">@color/ds_dusk_blue</item>
+        <item name="colorOnSecondaryContainer">@color/ds_alabaster_grey</item>
+
+        <!-- Deep Sea tertiary: Lavender Grey accents -->
+        <item name="colorTertiary">@color/ds_lavender_grey</item>
+        <item name="colorOnTertiary">@color/ds_ink_black</item>
+        <item name="colorTertiaryContainer">@color/ds_dusk_blue</item>
+        <item name="colorOnTertiaryContainer">@color/ds_alabaster_grey</item>
+
+        <!-- Window background: Ink Black -->
+        <item name="android:colorBackground">@color/ds_ink_black</item>
+        <item name="colorOnBackground">@color/ds_alabaster_grey</item>
+
+        <!-- Card/surface: Prussian Blue -->
+        <item name="colorSurface">@color/ds_prussian_blue</item>
+        <item name="colorOnSurface">@color/ds_alabaster_grey</item>
+        <item name="colorSurfaceVariant">@color/ds_dusk_blue</item>
+        <item name="colorOnSurfaceVariant">@color/ds_lavender_grey</item>
+
+        <!-- Borders: Dusk Blue -->
+        <item name="colorOutline">@color/ds_dusk_blue</item>
+        <item name="colorOutlineVariant">@color/ds_prussian_blue</item>
+    </style>
+
 </resources>

@@ -21,57 +21,57 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // view binding init
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Edge-to-edge insets
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
             insets
         }
 
-        // Back navigation
+        // back navigation
         binding.toolbar.setNavigationOnClickListener { finish() }
 
         prefs = getSharedPreferences("bmi_history", MODE_PRIVATE)
 
-        // Load and display history on start
+        // initial history render
         displayHistory()
 
-        // 4.2.2 — Show Best: only "Normal weight" entries
+        // show best Normal weight
         binding.btnShowBest.setOnClickListener {
             val entries = getHistoryEntries()
             val best = findBest(entries)
 
             if (best != null) {
-                binding.tvBestTitle.text    = "Your best BMI was"
+                binding.tvBestTitle.text    = getString(R.string.label_best_bmi_title)
                 binding.tvBestBmi.text      = String.format(Locale.US, "%.1f", best.first)
                 binding.tvBestBmi.visibility = View.VISIBLE
-                binding.tvBestCategory.text = best.second
+                binding.tvBestCategory.text = localizeCategory(best.second)
             } else {
-                // No "Normal weight" readings found
-                binding.tvBestTitle.text    = "Unfortunately, no best result found"
+                binding.tvBestTitle.text    = getString(R.string.label_best_bmi_none_title)
                 binding.tvBestBmi.visibility = View.GONE
-                binding.tvBestCategory.text = "No readings with Normal weight yet"
+                binding.tvBestCategory.text = getString(R.string.label_best_bmi_none_body)
             }
 
             if (binding.cvBestResult.visibility != View.VISIBLE) {
                 binding.cvBestResult.visibility = View.VISIBLE
+                // fade-in animation
                 val anim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
                 anim.duration = 300
                 binding.cvBestResult.startAnimation(anim)
             }
         }
 
-        // 4.2.1 — Show Average: calcAverage procedure
+        // show average of all
         binding.btnShowAverage.setOnClickListener {
             val entries = getHistoryEntries()
             val avg = calcAverage(entries)
 
             if (avg != null) {
                 binding.tvAvgBmi.text      = String.format(Locale.US, "%.1f", avg)
-                binding.tvAvgCategory.text = categorize(avg)
+                binding.tvAvgCategory.text = localizeCategory(categorizeKey(avg))
             }
 
             if (binding.cvAverageResult.visibility != View.VISIBLE) {
@@ -82,18 +82,18 @@ class HistoryActivity : AppCompatActivity() {
             }
         }
 
-        // Navigate to Statistics screen (Exercises 1 & 2)
         binding.btnViewStatistics.setOnClickListener {
             startActivity(android.content.Intent(this, StatisticsActivity::class.java))
         }
 
-        // Clear all with confirmation dialog
+        // confirm before clearing
         binding.fabClearHistory.setOnClickListener {
             MaterialAlertDialogBuilder(this)
-                .setTitle("Clear history")
-                .setMessage("Delete all saved BMI readings?")
-                .setNegativeButton("Cancel", null)
-                .setPositiveButton("Clear") { _, _ ->
+                .setTitle(getString(R.string.dialog_clear_title))
+                .setMessage(getString(R.string.dialog_clear_message))
+                .setNegativeButton(getString(R.string.dialog_cancel), null)
+                .setPositiveButton(getString(R.string.dialog_clear_confirm)) { _, _ ->
+                    // wipe all data
                     prefs.edit().clear().apply()
                     binding.cvBestResult.visibility    = View.GONE
                     binding.cvAverageResult.visibility  = View.GONE
@@ -103,10 +103,7 @@ class HistoryActivity : AppCompatActivity() {
         }
     }
 
-    // ── 4.2.2: findBest — to-result procedure ─────────────────────────────
-    // Only considers "Normal weight" entries.
-    // Loops through the list tracking the minimum BMI value seen among them.
-    // Returns Pair(bmiValue, category) or null if no Normal weight entries.
+    // filter: normal category only, return lowest
     private fun findBest(entries: List<String>): Pair<Double, String>? {
         if (entries.isEmpty()) return null
 
@@ -118,10 +115,10 @@ class HistoryActivity : AppCompatActivity() {
             if (parts.size < 2) continue
 
             val category = parts[1]
-            if (category != "Normal weight") continue   // filter: only Normal weight
+            // normal entries only (key or legacy English)
+            if (category.lowercase() !in setOf("normal", "normal weight")) continue
 
             val bmi = parts[0].toDoubleOrNull() ?: continue
-
             if (bmi < bestBmi) {
                 bestBmi      = bmi
                 bestCategory = category
@@ -132,9 +129,7 @@ class HistoryActivity : AppCompatActivity() {
         else Pair(bestBmi, bestCategory)
     }
 
-    // ── 4.2.1: calcAverage — to-result procedure ──────────────────────────
-    // Takes a list, loops through summing all BMI values, divides by length.
-    // Returns the result rounded to 1 decimal place, or null if empty.
+    // sum all BMI, divide by count
     private fun calcAverage(entries: List<String>): Double? {
         if (entries.isEmpty()) return null
 
@@ -145,22 +140,31 @@ class HistoryActivity : AppCompatActivity() {
             val parts = entry.split("|")
             if (parts.isEmpty()) continue
             val bmi = parts[0].toDoubleOrNull() ?: continue
+            // running total
             sum += bmi
             count++
         }
 
         if (count == 0) return null
-        return sum / count    // rounded to 1 decimal on display
+        return sum / count
     }
 
-    // Helper: classify a BMI value into a category string
-    private fun categorize(bmi: Double): String = when {
-        bmi < 18.5 -> "Underweight"
-        bmi < 25.0 -> "Normal weight"
-        bmi < 30.0 -> "Overweight"
-        else       -> "Obese"
+    // BMI value → category key
+    private fun categorizeKey(bmi: Double): String = when {
+        bmi < 18.5 -> "underweight"
+        bmi < 25.0 -> "normal"
+        bmi < 30.0 -> "overweight"
+        else       -> "obese"
     }
-    // ──────────────────────────────────────────────────────────────────────
+
+    // category key → localized label
+    private fun localizeCategory(key: String): String = when (key.lowercase()) {
+        "normal", "normal weight" -> getString(R.string.cat_normal)
+        "overweight"              -> getString(R.string.cat_overweight)
+        "obese"                   -> getString(R.string.cat_obese)
+        "underweight"             -> getString(R.string.cat_underweight)
+        else                      -> key
+    }
 
     private fun getHistoryEntries(): List<String> {
         val raw = prefs.getString("entries", "") ?: ""
@@ -172,11 +176,11 @@ class HistoryActivity : AppCompatActivity() {
         val entries = getHistoryEntries()
         val count   = entries.size
 
-        // tvHistoryCount — total saved readings
+        // update count label
         binding.tvHistoryCount.text = if (count == 1)
-            "You have 1 saved reading"
+            getString(R.string.history_count_one)
         else
-            "You have $count saved readings"
+            getString(R.string.history_count_other, count)
 
         if (entries.isEmpty()) {
             binding.historyLabel.visibility     = View.GONE
@@ -197,17 +201,17 @@ class HistoryActivity : AppCompatActivity() {
         binding.divider.visibility         = View.VISIBLE
         binding.fabClearHistory.show()
 
-        // historyLabel — build multi-line text from SharedPreferences list
+        // build history text
         val sb = StringBuilder()
         for ((index, entry) in entries.withIndex()) {
             val parts = entry.split("|")
             if (parts.size < 3) continue
             val bmiValue = parts[0]
-            val category = parts[1]
+            val catKey   = parts[1]
             val date     = parts[2]
 
             sb.append("${index + 1}.  $date\n")
-            sb.append("     BMI: $bmiValue  ·  $category")
+            sb.append("     BMI: $bmiValue  ·  ${localizeCategory(catKey)}")
 
             if (index < entries.size - 1) sb.append("\n\n")
         }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculadora de IMC</string>
+    <string name="title_main">Calculadora de IMC</string>
+    <string name="subtitle_main">Registra tu índice de masa corporal</string>
+    <string name="hint_weight">Peso (kg)</string>
+    <string name="hint_height">Altura (cm)</string>
+    <string name="hint_prev_weight">Peso anterior (kg)</string>
+    <string name="btn_calc_current">IMC actual</string>
+    <string name="btn_calc_previous">IMC anterior</string>
+    <string name="btn_view_history">Ver historial</string>
+    <string name="label_your_bmi">Tu IMC</string>
+    <string name="label_previous_bmi">IMC anterior</string>
+    <string name="btn_language_select">Idioma</string>
+    <string name="title_language">Seleccionar idioma</string>
+    <string name="lang_english">English</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_japanese">日本語</string>
+    <string name="lang_spanish">Español</string>
+
+    <string name="cat_underweight">Bajo peso</string>
+    <string name="cat_normal">Peso normal</string>
+    <string name="cat_overweight">Sobrepeso</string>
+    <string name="cat_obese">Obeso</string>
+    <string name="cat_short_too_low">Muy bajo</string>
+    <string name="cat_short_normal">Normal</string>
+    <string name="cat_short_too_high">Muy alto</string>
+
+    <string name="advice_gaining">Estás ganando kilos últimamente. ¿Por qué no entrenas 20 minutos hoy?</string>
+    <string name="advice_losing">Estás perdiendo kilos últimamente. ¡Buen trabajo!</string>
+    <string name="advice_constant">Tu peso ha sido constante últimamente.</string>
+
+    <string name="title_history">Historial de IMC</string>
+    <string name="history_count_one">Tienes 1 registro guardado</string>
+    <string name="history_count_other">Tienes %d registros guardados</string>
+    <string name="btn_show_best">Mejor IMC</string>
+    <string name="btn_show_average">IMC promedio</string>
+    <string name="btn_view_dashboard">Panel de control</string>
+    <string name="label_best_bmi_title">Tu mejor IMC fue</string>
+    <string name="label_best_bmi_none_title">No se encontró el mejor resultado</string>
+    <string name="label_best_bmi_none_body">Sin registros de peso normal aún</string>
+    <string name="label_avg_bmi">Tu IMC promedio</string>
+    <string name="empty_no_records">Sin registros</string>
+    <string name="empty_start_hint">Calcula tu primer IMC para comenzar</string>
+    <string name="fab_clear">Borrar todo</string>
+    <string name="dialog_clear_title">Borrar historial</string>
+    <string name="dialog_clear_message">¿Eliminar todos los registros de IMC?</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_clear_confirm">Eliminar</string>
+
+    <string name="btn_tap_to_speak">Toca para hablar</string>
+    <string name="speech_choose_field">¿Qué campo rellenar?</string>
+    <string name="speech_prompt">Di un número</string>
+    <string name="speech_not_available">Reconocimiento de voz no disponible</string>
+
+    <string name="title_statistics">Panel</string>
+    <string name="label_bmi_over_time">IMC a lo largo del tiempo</string>
+    <string name="label_bmi_categories">Categorías de IMC</string>
+    <string name="legend_normal">Normal</string>
+    <string name="legend_too_high">Muy alto</string>
+    <string name="legend_too_low">Muy bajo</string>
+    <string name="chart_dataset_label">Historial de IMC</string>
+</resources>

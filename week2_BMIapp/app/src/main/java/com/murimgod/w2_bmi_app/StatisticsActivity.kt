@@ -102,7 +102,7 @@ class StatisticsActivity : AppCompatActivity() {
     }
 
     private fun setupLineChart(chartPoints: List<Entry>, baseEpoch: Long) {
-        val dataSet = LineDataSet(chartPoints, "BMI History").apply {
+        val dataSet = LineDataSet(chartPoints, getString(R.string.chart_dataset_label)).apply {
             color = Color.parseColor("#FF5722")
             setCircleColor(Color.parseColor("#FF5722"))
             lineWidth = 2f
@@ -155,15 +155,15 @@ class StatisticsActivity : AppCompatActivity() {
 
         // only add non-zero slices
         if (normal > 0) {
-            entries.add(PieEntry(normal.toFloat(), "Normal"))
+            entries.add(PieEntry(normal.toFloat(), getString(R.string.cat_short_normal)))
             colors.add(Color.parseColor("#4CAF50"))
         }
         if (tooHigh > 0) {
-            entries.add(PieEntry(tooHigh.toFloat(), "Too High"))
+            entries.add(PieEntry(tooHigh.toFloat(), getString(R.string.cat_short_too_high)))
             colors.add(Color.parseColor("#F44336"))
         }
         if (tooLow > 0) {
-            entries.add(PieEntry(tooLow.toFloat(), "Too Low"))
+            entries.add(PieEntry(tooLow.toFloat(), getString(R.string.cat_short_too_low)))
             colors.add(Color.parseColor("#2196F3"))
         }
 
@@ -193,11 +193,11 @@ class StatisticsActivity : AppCompatActivity() {
         }
     }
 
-    // BMI → display label
+    // BMI → short display label
     private fun categorize(bmi: Double): String = when {
-        bmi < 18.5 -> "Too Low"
-        bmi < 25.0 -> "Normal"
-        else       -> "Too High"
+        bmi < 18.5 -> getString(R.string.cat_short_too_low)
+        bmi < 25.0 -> getString(R.string.cat_short_normal)
+        else       -> getString(R.string.cat_short_too_high)
     }
 
     // BMI → color

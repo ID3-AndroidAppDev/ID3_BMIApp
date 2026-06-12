@@ -1,27 +1,22 @@
-# BMI App — Compose Canvas UI
+# Painting App — Compose Canvas UI
 
-An Android BMI calculator built entirely with **Jetpack Compose**, featuring a live dashboard drawn with the Compose **Canvas API** — no charting libraries used.
+An Android drawing app built entirely with **Jetpack Compose**, featuring a neo-brutalist UI and a freehand drawing surface powered by the Compose **Canvas API** — no external graphics libraries used.
 
 ---
 
 ## Features
 
-### Calculator
-- Metric and Imperial unit toggle
-- Arc gauge that animates to the current BMI value
-- Category label and description update in real time
-- Save result with one tap — stores BMI + timestamp to SharedPreferences
+### Canvas
+- Freehand drawing with smooth drag-gesture strokes
+- Adjustable brush width slider
+- Erase button to clear the canvas
+- Hard-shadow, sticker-style neo-brutalist components
 
-### Dashboard (shown once at least one record is saved)
-- **Stats row** — MIN / AVG / MAX chips, each coloured by their BMI category
-- **BMI Trend** — line chart with time-based x-axis; points are spaced by actual elapsed time, x-axis labels use clean round intervals (1 min / 5 min / 30 min / 1 h…)
-- **Distribution** — donut chart showing the share of each BMI category, with record count in the centre hole and a colour-coded legend
-
-### History
-- Records grouped by BMI category
-- Within-category trend arrows (▼ improving, ▲ worsening)
-- Full timestamp on every entry
-- Clear All button
+### Ink Lab (colour picker)
+- Eight preset pop colours
+- Custom colour mixing with R / G / B channel sliders
+- Live colour preview swatch
+- Back gesture returns to the canvas
 
 ---
 
@@ -30,8 +25,7 @@ An Android BMI calculator built entirely with **Jetpack Compose**, featuring a l
 | Layer | Detail |
 |---|---|
 | UI | Jetpack Compose (Material 3) |
-| Charts | Compose `Canvas` — `drawArc`, `drawLine`, `drawPath`, `drawText` |
-| Persistence | `SharedPreferences` + `JSONArray` |
+| Drawing | Compose `Canvas` — `drawPath`, `drawRoundRect`, drag gestures |
 | Language | Kotlin |
 | Min SDK | 24 (Android 7.0) |
 | Target SDK | 36 |
@@ -52,7 +46,8 @@ No API keys or external services required.
 
 ```
 app/src/main/java/com/example/id/
-└── MainActivity.kt          # All screens and composables
+├── MainActivity.kt          # Activity entry point
+└── PaintingApp.kt           # All screens and composables
 app/src/main/java/com/example/id/ui/theme/
 ├── Color.kt
 ├── Theme.kt
